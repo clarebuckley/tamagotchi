@@ -1,0 +1,25 @@
+.tamagotchi-img {
+  min-height: 200px;
+  height: 400px;
+  padding: 100px;
+}
+
+.tamagotchi-buttons{
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  background-color: #7870AC;
+  color: white;
+  font-weight: 600;
+}
+
+.tamagotchi-container {
+  height: 100%;
+  background-color: white;
+}
+
+button {
+  flex-grow: 1;
+}
+

@@ -1,0 +1,13 @@
+.app-container {
+  min-width: 500px;
+  width: 50vw;
+  background-color: white;
+  height: 100vh;
+  margin:0 auto;
+  background-color: grey;
+}
+
+.page-container {
+  background-color: grey;
+  height: 100vh;
+}

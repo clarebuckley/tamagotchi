@@ -1,0 +1,11 @@
+:root {
+  --button-hover: #7870AC;
+  --button-colour: #554C90;;
+}
+
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100vh;
+}
