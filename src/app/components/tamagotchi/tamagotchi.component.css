@@ -23,3 +23,6 @@ button {
   flex-grow: 1;
 }
 
+.selected-button {
+  background-color: #CFC9F2;
+}

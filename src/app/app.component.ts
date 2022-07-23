@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tamagotchi-app';
+  buttonClickedValue: Subject<string> = new Subject<string>()//string = "";
+
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  buttonClicked(name: string){
+    this.buttonClickedValue.next(name);
+  }
 }

@@ -1,8 +1,8 @@
 <div class="page-container">
   <div class="app-container" fxLayout="column" fxLayoutAlign="center stretch">
     <app-toolbar></app-toolbar>
-    <app-tamagotchi fxFlex></app-tamagotchi>
-    <app-action-button-bar></app-action-button-bar>
+    <app-tamagotchi fxFlex [buttonClickedValue]="buttonClickedValue.asObservable()"></app-tamagotchi>
+    <app-action-button-bar (buttonClicked)="buttonClicked($event)"></app-action-button-bar>
   </div>
 </div>
 <router-outlet></router-outlet>

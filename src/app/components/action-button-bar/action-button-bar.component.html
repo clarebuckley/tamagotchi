@@ -1,16 +1,17 @@
 <div fxLayout="row" fxLayoutAlign="space-around center" class="action-bar-container">
   <div>
-    <button mat-fab color="default" class="default-button" aria-label="Left button">
+    <button mat-fab color="default" class="default-button" aria-label="Left button" (click)="onButtonClick('left')">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
   </div>
   <div>
-    <button mat-fab color="default" class="default-button" aria-label="Enter button">
+    <button mat-fab color="default" class="default-button" aria-label="Enter button" (click)="onButtonClick('enter')">
     </button>
   </div>
   <div>
-    <button mat-fab color="default" class="default-button" aria-label="Right button">
+    <button mat-fab color="default" class="default-button" aria-label="Right button" (click)="onButtonClick('right')">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
   </div>
+
 </div>
