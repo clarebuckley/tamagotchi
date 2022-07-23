@@ -16,7 +16,14 @@
 
 .tamagotchi-container {
   height: 100%;
+}
+
+.lightOn {
   background-color: white;
+}
+
+.lightOff {
+  background-color: black;
 }
 
 button {

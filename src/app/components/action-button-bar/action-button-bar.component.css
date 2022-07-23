@@ -7,13 +7,13 @@
 .mat-flat-button.mat-default,
 .mat-fab.mat-default,
 .mat-mini-fab.mat-default {
-  color: #f0fff3;
+  color: #7870AC;
   background-color: var(--button-colour)
 }
 
 .default-button {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .mat-icon {

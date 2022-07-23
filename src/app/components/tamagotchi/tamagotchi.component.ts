@@ -14,6 +14,7 @@ export class TamagotchiComponent implements OnInit {
   selectedButtonOption: number = -1;
   selectedButtonOptionText: string = '';
   buttonOptions = ['feed', 'light', 'game', 'medic', 'bathe', 'stats', 'discipline', 'social'];
+  isLightOn = true;
 
 
   ngOnInit(): void {
@@ -39,8 +40,46 @@ export class TamagotchiComponent implements OnInit {
     }
 
     if (value == "enter") {
-      console.log("do something");
+      switch (this.selectedButtonOptionText) {
+        case "feed": {
+          //statements;
+          break;
+        }
+        case "light": {
+          this.isLightOn = !this.isLightOn;
+          break;
+        }
+        case "game": {
+          //statements;
+          break;
+        }
+        case "medic": {
+          //statements;
+          break;
+        }
+        case "bathe": {
+          //statements;
+          break;
+        }
+        case "stats": {
+          //statements;
+          break;
+        }
+        case "discipline": {
+          //statements;
+          break;
+        }
+        case "social": {
+          //statements;
+          break;
+        }
+        default: {
+          //statements;
+          break;
+        }
+      }
     }
   }
-
 }
+
+

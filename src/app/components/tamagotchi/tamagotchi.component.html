@@ -1,4 +1,4 @@
-<div class="tamagotchi-container" fxLayout="column" fxLayoutAlign="center stretch">
+<div class="tamagotchi-container" fxLayout="column" fxLayoutAlign="center stretch" [ngClass]="{'lightOn' : isLightOn, 'lightOff': !isLightOn}">
   <div class="tamagotchi-buttons">
     <button mat-button aria-label="Feed"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'feed'}">
       <i class="fa-solid fa-2xl fa-utensils"></i>
@@ -14,8 +14,11 @@
     </button>
   </div>
 
-  <div fxLayoutAlign="center none" fxFlex>
+  <div *ngIf="isLightOn" fxLayoutAlign="center none" fxFlex>
     <img class="tamagotchi-img" src="../../../assets/baby/baby-average.gif" />
+  </div>
+  <div *ngIf="!isLightOn" fxLayoutAlign="center none" fxFlex>
+    <img class="tamagotchi-img" src="../../../assets/baby/baby light off.jpg" />
   </div>
 
   <div class="tamagotchi-buttons">
