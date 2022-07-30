@@ -1,0 +1,11 @@
+<div fxLayoutAlign="center none" fxFlex>
+  <img *ngIf="!isEggCracked" class="tamagotchi-img" src='../../../assets/egg/egg{{eggId}}.jpg' />
+  <div *ngIf="isEggCracked">
+    <h2 class="inputElement"><label for="name">name your new child:</label></h2>
+    <div class="inputElement field field_v1">
+      <input id="first-name" class="field__input" type="text" id="name" name="name" [(ngModel)]="state.name">
+    </div>
+    <div class="inputElement" *ngIf="state.name.length > 0"><span>press the middle button to start caring for {{state.name}}!</span></div>
+    <img class="tamagotchi-img" src="../../../assets/egg/egg open.jpg" />
+  </div>
+</div>

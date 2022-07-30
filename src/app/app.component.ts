@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class AppComponent {
   title = 'tamagotchi-app';
-  buttonClickedValue: Subject<string> = new Subject<string>()//string = "";
+  buttonClickedValue: Subject<string> = new Subject<string>()
 
 
   constructor() { }

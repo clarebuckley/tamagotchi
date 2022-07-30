@@ -1,0 +1,9 @@
+<div *ngIf="statsValue.isLightOn && !statsValue.hasPooped" fxLayoutAlign="center none" fxFlex>
+  <img class="tamagotchi-img" src="../../../assets/baby/baby-average.gif" />
+</div>
+<div *ngIf="!statsValue.isLightOn" fxLayoutAlign="center none" fxFlex>
+  <img class="tamagotchi-img" src="../../../assets/baby/sleep/baby light off sleep.gif" />
+</div>
+<div *ngIf="statsValue.isLightOn && statsValue.hasPooped" fxLayoutAlign="center none" fxFlex>
+  <img class="tamagotchi-img" src="../../../assets/baby/poop/baby poop.gif" />
+</div>

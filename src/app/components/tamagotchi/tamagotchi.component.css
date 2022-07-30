@@ -1,9 +1,6 @@
-.tamagotchi-img {
-  min-height: 200px;
-  height: 400px;
-  padding: 100px;
+.tamagotchi-container {
+  height: 100%;
 }
-
 .tamagotchi-buttons{
   height: 10vh;
   display: flex;
@@ -14,9 +11,7 @@
   font-weight: 600;
 }
 
-.tamagotchi-container {
-  height: 100%;
-}
+
 
 .lightOn {
   background-color: white;

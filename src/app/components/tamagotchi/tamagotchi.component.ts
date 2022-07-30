@@ -1,5 +1,7 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ITamagotchiStats } from '../../interfaces/tamagotchi-stats.interface';
+import { TamagotchiStatsService } from '../../services/tamagotchi-stats.service';
 
 @Component({
   selector: 'app-tamagotchi',
@@ -8,17 +10,28 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class TamagotchiComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tamagotchiStatsService: TamagotchiStatsService) { }
 
   @Input() buttonClickedValue: Observable<string> = new Observable();
+  stats: Observable<ITamagotchiStats> = this.tamagotchiStatsService.stats$;
+
   selectedButtonOption: number = -1;
   selectedButtonOptionText: string = '';
   buttonOptions = ['feed', 'light', 'game', 'medic', 'bathe', 'stats', 'discipline', 'social'];
-  isLightOn = true;
 
+  statsValue :ITamagotchiStats = {
+    age: 0,
+    name: '',
+    happiness: 0,
+    hunger: 0,
+    cleanliness: 0,
+    hasPooped: false,
+    isLightOn: false
+  }
 
   ngOnInit(): void {
     this.buttonClickedValue.subscribe((value) => this.changeSelection(value));
+    this.stats.subscribe((value) => this.statsValue = value)
   }
 
   changeSelection(value: any) {
@@ -46,7 +59,7 @@ export class TamagotchiComponent implements OnInit {
           break;
         }
         case "light": {
-          this.isLightOn = !this.isLightOn;
+          this.tamagotchiStatsService.toggleLight();
           break;
         }
         case "game": {
@@ -58,7 +71,7 @@ export class TamagotchiComponent implements OnInit {
           break;
         }
         case "bathe": {
-          //statements;
+          this.tamagotchiStatsService.setHasPooped(false);
           break;
         }
         case "stats": {
@@ -74,7 +87,6 @@ export class TamagotchiComponent implements OnInit {
           break;
         }
         default: {
-          //statements;
           break;
         }
       }
