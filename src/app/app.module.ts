@@ -15,6 +15,7 @@ import { TamagotchiScreenComponent } from './components/screens/tamagotchi-scree
 import { StartScreenComponent } from './components/screens/start-screen/start-screen.component';
 import { FormsModule } from '@angular/forms';
 import { state } from '@angular/animations';
+import { StatsScreenComponent } from './components/screens/stats-screen/stats-screen.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { state } from '@angular/animations';
     ActionButtonBarComponent,
     TamagotchiScreenComponent,
     StartScreenComponent,
+    StatsScreenComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,35 +1,43 @@
-<div class="tamagotchi-container" fxLayout="column" fxLayoutAlign="center stretch" [ngClass]="{'lightOn' : statsValue.isLightOn, 'lightOff': !statsValue.isLightOn}">
-  <div class="tamagotchi-buttons">
-    <button mat-button aria-label="Feed"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'feed'}">
-      <i class="fa-solid fa-2xl fa-utensils"></i>
-    </button>
-    <button mat-button aria-label="Toggle light"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'light'}">
-      <i class="fa-solid fa-2xl fa-lightbulb"></i>
-    </button>
-    <button mat-button aria-label="Game"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'game'}">
-      <i class="fa-solid fa-2xl fa-gamepad"></i>
-    </button>
-    <button mat-button aria-label="Treat illness"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'medic'}">
-      <i class="fa-solid fa-2xl fa-syringe"></i>
-    </button>
+<span *ngIf="(stats | async) as statsValue">
+  <div class="tamagotchi-container" fxLayout="column" fxLayoutAlign="center stretch"
+    [ngClass]="{'lightOn' : statsValue.isLightOn, 'lightOff': !statsValue.isLightOn}">
+    <div class="tamagotchi-buttons">
+      <button mat-button aria-label="Feed" [ngClass]="{'selected-button' : selectedButtonOptionText == 'feed'}">
+        <i class="fa-solid fa-2xl fa-utensils"></i>
+      </button>
+      <button mat-button aria-label="Toggle light"
+        [ngClass]="{'selected-button' : selectedButtonOptionText == 'light'}">
+        <i class="fa-solid fa-2xl fa-lightbulb"></i>
+      </button>
+      <button mat-button aria-label="Game" [ngClass]="{'selected-button' : selectedButtonOptionText == 'game'}">
+        <i class="fa-solid fa-2xl fa-gamepad"></i>
+      </button>
+      <button mat-button aria-label="Treat illness"
+        [ngClass]="{'selected-button' : selectedButtonOptionText == 'medic'}">
+        <i class="fa-solid fa-2xl fa-syringe"></i>
+      </button>
+    </div>
+
+<span>{{(screen | async) === 'StatisticsScreen'}}</span>
+    <app-start-screen fxFlex *ngIf="statsValue.age == -1" [buttonClickedValue]="buttonClickedValue"></app-start-screen>
+    <app-tamagotchi-screen *ngIf="(screen | async) === 'TamagotchiScreen'" fxFlex></app-tamagotchi-screen>
+    <app-stats-screen fxFlex *ngIf="(screen | async) === 'StatisticsScreen'"></app-stats-screen>
+
+    <div class="tamagotchi-buttons">
+      <button mat-button aria-label="Bathe" [ngClass]="{'selected-button' : selectedButtonOptionText == 'bathe'}">
+        <i class="fa-solid fa-2xl fa-bath"></i>
+      </button>
+      <button mat-button aria-label="Stats" [ngClass]="{'selected-button' : selectedButtonOptionText == 'stats'}">
+        <i class="fa-solid fa-2xl fa-weight-scale"></i>
+      </button>
+      <button mat-button aria-label="Discipline"
+        [ngClass]="{'selected-button' : selectedButtonOptionText == 'discipline'}">
+        <i class="fa-solid fa-2xl fa-face-angry"></i>
+      </button>
+      <button mat-button aria-label="Social" [ngClass]="{'selected-button' : selectedButtonOptionText == 'social'}">
+        <i class="fa-solid fa-2xl fa-user-group"></i>
+      </button>
+    </div>
   </div>
 
-  <app-tamagotchi-screen *ngIf="statsValue.age != -1" fxFlex></app-tamagotchi-screen>
-  <app-start-screen fxFlex *ngIf="statsValue.age == -1" [buttonClickedValue]="buttonClickedValue"></app-start-screen>
-
-
-  <div class="tamagotchi-buttons">
-    <button mat-button aria-label="Bathe"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'bathe'}">
-      <i class="fa-solid fa-2xl fa-bath"></i>
-    </button>
-    <button mat-button aria-label="Stats"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'stats'}">
-      <i class="fa-solid fa-2xl fa-weight-scale"></i>
-    </button>
-    <button mat-button aria-label="Discipline"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'discipline'}">
-      <i class="fa-solid fa-2xl fa-face-angry"></i>
-    </button>
-    <button mat-button aria-label="Social"  [ngClass]="{'selected-button' : selectedButtonOptionText == 'social'}">
-      <i class="fa-solid fa-2xl fa-user-group"></i>
-    </button>
-  </div>
-</div>
+</span>

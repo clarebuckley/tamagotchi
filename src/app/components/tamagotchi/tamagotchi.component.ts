@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ITamagotchiStats } from '../../interfaces/tamagotchi-stats.interface';
 import { TamagotchiStatsService } from '../../services/tamagotchi-stats.service';
+import { Screen } from '../../enums/Screen.enum';
 
 @Component({
   selector: 'app-tamagotchi',
@@ -10,28 +11,18 @@ import { TamagotchiStatsService } from '../../services/tamagotchi-stats.service'
 })
 export class TamagotchiComponent implements OnInit {
 
-  constructor(private tamagotchiStatsService: TamagotchiStatsService) { }
+  constructor(public tamagotchiStatsService: TamagotchiStatsService) { }
 
   @Input() buttonClickedValue: Observable<string> = new Observable();
   stats: Observable<ITamagotchiStats> = this.tamagotchiStatsService.stats$;
+  screen: Observable<Screen> = this.tamagotchiStatsService.screen$;
 
   selectedButtonOption: number = -1;
   selectedButtonOptionText: string = '';
   buttonOptions = ['feed', 'light', 'game', 'medic', 'bathe', 'stats', 'discipline', 'social'];
 
-  statsValue :ITamagotchiStats = {
-    age: 0,
-    name: '',
-    happiness: 0,
-    hunger: 0,
-    cleanliness: 0,
-    hasPooped: false,
-    isLightOn: false
-  }
-
   ngOnInit(): void {
     this.buttonClickedValue.subscribe((value) => this.changeSelection(value));
-    this.stats.subscribe((value) => this.statsValue = value)
   }
 
   changeSelection(value: any) {
@@ -75,7 +66,10 @@ export class TamagotchiComponent implements OnInit {
           break;
         }
         case "stats": {
-          //statements;
+          this.tamagotchiStatsService.updateScreen(Screen.StatisticsScreen)
+          console.log("stats!!")
+          console.log(this.tamagotchiStatsService.getScreen().valueOf() === "StatisticsScreen")
+          console.log(this.tamagotchiStatsService.getScreen() === "StatisticsScreen")
           break;
         }
         case "discipline": {
