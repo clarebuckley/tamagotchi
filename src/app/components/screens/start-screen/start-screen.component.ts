@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ITamagotchiStats } from 'src/app/interfaces/tamagotchi-stats.interface';
-import { TamagotchiStatsService } from '../../../services/tamagotchi-stats.service'
-import { Screen } from '../../../enums/Screen.enum';
+import { TamagotchiStatsService } from '../../../services/tamagotchi-stats-service/tamagotchi-stats.service'
+import { Screen } from '../../../enums/screen.enum';
 import { takeWhile } from 'rxjs/operators';
 @Component({
   selector: 'app-start-screen',

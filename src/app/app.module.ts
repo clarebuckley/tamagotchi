@@ -13,9 +13,11 @@ import { ToolbarComponent } from '../app/components/toolbar/toolbar.component';
 import { ActionButtonBarComponent } from '../app/components/action-button-bar/action-button-bar.component';
 import { TamagotchiScreenComponent } from './components/screens/tamagotchi-screen/tamagotchi-screen.component';
 import { StartScreenComponent } from './components/screens/start-screen/start-screen.component';
-import { FormsModule } from '@angular/forms';
-import { state } from '@angular/animations';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StatsScreenComponent } from './components/screens/stats-screen/stats-screen.component';
+import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { StatsScreenComponent } from './components/screens/stats-screen/stats-sc
     TamagotchiScreenComponent,
     StartScreenComponent,
     StatsScreenComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import { StatsScreenComponent } from './components/screens/stats-screen/stats-sc
     MatButtonModule,
     MatGridListModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+      <form [formGroup]="userFormSignUp" (ngSubmit)="onSignupSubmit()">
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <div class="form-group" [ngClass]="{ 'has-error': invalidSignUpEmail() }">
+          <input formControlName="newEmail" id="email_new" type="email" name="email" placeholder="Email" required="">
+          <p *ngIf="invalidSignUpEmail()" id="email_new_error" class="help-block">Invalid email</p>
+        </div>
+        <div class="form-group " [ngClass]="{ 'has-error': invalidSignUpPassword() }">
+          <input formControlName="newPassword" id="password_new" type="password" name="password" placeholder="Password" required="">
+          <p *ngIf="invalidSignUpPassword()"  id="password_new_error" class="help-block">Invalid password</p>
+        </div>
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+
+    <div class="login">
+      <form [formGroup]="userFormLogin" (ngSubmit)="onLoginSubmit()">
+        <label for="chk" aria-hidden="true">Login</label>
+        <div class="form-group " [ngClass]="{ 'has-error': invalidLoginEmail() }">
+          <input formControlName="existingPassword" id="email_login" type="email" name="email" placeholder="Email" required="">
+          <p *ngIf="invalidLoginEmail()" id="email_login_error" class="help-block">Invalid email</p>
+        </div>
+        <div class="form-group " [ngClass]="{ 'has-error': invalidLoginPassword() }">
+          <input formControlName="existingEmail" id="password_login" type="password" name="pswd" placeholder="Password" required="">
+          <p *ngIf="invalidLoginPassword()" id="password_login_error" class="help-block">Invalid password</p>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

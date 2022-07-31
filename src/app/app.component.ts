@@ -8,6 +8,8 @@ import { Subject } from 'rxjs';
 })
 export class AppComponent {
   title = 'tamagotchi-app';
+  isAuthenticated: boolean = false;
+
   buttonClickedValue: Subject<string> = new Subject<string>()
 
 

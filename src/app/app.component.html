@@ -1,8 +1,12 @@
 <div class="page-container">
-  <div class="app-container" fxLayout="column" fxLayoutAlign="center stretch">
+  <div *ngIf="isAuthenticated" class="app-container" fxLayout="column" fxLayoutAlign="center stretch">
     <app-toolbar></app-toolbar>
     <app-tamagotchi fxFlex [buttonClickedValue]="buttonClickedValue.asObservable()"></app-tamagotchi>
     <app-action-button-bar (buttonClicked)="buttonClicked($event)"></app-action-button-bar>
+  </div>
+
+  <div *ngIf="!isAuthenticated" class="app-container" fxLayout="column" fxLayoutAlign="center stretch">
+    <app-login></app-login>
   </div>
 </div>
 <router-outlet></router-outlet>

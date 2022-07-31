@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ITamagotchiStats } from '../interfaces/tamagotchi-stats.interface';
-import { Screen } from '../enums/Screen.enum';
+import { ITamagotchiStats } from '../../interfaces/tamagotchi-stats.interface';
+import { Screen } from '../../enums/screen.enum';
 
 @Injectable({
   providedIn: 'root'

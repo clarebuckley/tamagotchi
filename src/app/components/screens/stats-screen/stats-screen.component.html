@@ -1,1 +1,6 @@
-<p>stats-screen works!</p>
+<span *ngIf="(stats | async) as statsValue" class="container">
+  <h2>how is {{statsValue.name}} doing?</h2>
+  <p>age: {{statsValue.age}}</p>
+  <p>happiness: {{statsValue.happiness}}</p>
+  <p>hunger: {{statsValue.hunger}}</p>
+</span>
