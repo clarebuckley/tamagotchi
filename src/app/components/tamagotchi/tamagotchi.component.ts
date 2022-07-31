@@ -67,9 +67,6 @@ export class TamagotchiComponent implements OnInit {
         }
         case "stats": {
           this.tamagotchiStatsService.updateScreen(Screen.StatisticsScreen)
-          console.log("stats!!")
-          console.log(this.tamagotchiStatsService.getScreen().valueOf() === "StatisticsScreen")
-          console.log(this.tamagotchiStatsService.getScreen() === "StatisticsScreen")
           break;
         }
         case "discipline": {
