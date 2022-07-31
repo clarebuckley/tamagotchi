@@ -1,9 +1,9 @@
-import { Component, getNgModuleById, OnInit } from '@angular/core';
-import { GridAutoDirective } from '@angular/flex-layout';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/interfaces/user.interface';
-import { TamagotchiApiService } from 'src/app/services/tamagotchi-api-service/tamagotchi-api.service';
+import { UserApiService } from 'src/app/services/user-api-service/user-api.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { TamagotchiApiService } from 'src/app/services/tamagotchi-api-service/tamagotchi-api.service';
+import { ITamagotchi } from 'src/app/interfaces/tamagotchi.interface';
 
 @Component({
   selector: 'app-login',
@@ -27,11 +27,17 @@ export class LoginComponent implements OnInit {
     userId: '',
     username: '',
     password: '',
-    tamagotchi: '',
     lastLoggedInDate: new Date()
   }
 
-  constructor(private tamagotchiApiService: TamagotchiApiService, private formBuilder: FormBuilder) {
+  tamagotchi: ITamagotchi = {
+    tamagotchiId: '',
+    owner: ''
+  }
+
+  constructor(private userApiService: UserApiService,
+    private formBuilder: FormBuilder,
+    private tamagotchiApiService: TamagotchiApiService) {
   }
 
   ngOnInit(): void {
@@ -56,9 +62,15 @@ export class LoginComponent implements OnInit {
       this.user.userId = crypto.randomUUID();
       this.user.username = this.newEmail;
       this.user.password = this.newPassword;
-      this.tamagotchiApiService.createuser(this.user);
+      this.user.lastLoggedInDate = new Date();
+      this.tamagotchi.tamagotchiId = crypto.randomUUID();
+      this.tamagotchi.owner = this.user.userId
+
+      this.userApiService.createUser(this.user).subscribe((response) => console.log(response))
+      this.tamagotchiApiService.createTamagotchi(this.tamagotchi).subscribe((response) => console.log(response))
     }
   }
+
 
   onLoginSubmit() {
     this.submitted = true;
